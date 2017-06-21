@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:oxm="http://www.springframework.org/schema/oxm"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:ehcache="http://ehcache-spring-annotations.googlecode.com/svn/schema/ehcache-spring"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+				http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+	            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+				http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+				http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm-4.3.xsd
+				http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+				http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<mvc:annotation-driven />
+	<context:annotation-config />
+	<aop:aspectj-autoproxy />
+
+	<context:component-scan base-package="com.kazoku.controllers" />
+	<context:component-scan base-package="com.kazoku.dao" />
+	<context:component-scan base-package="com.kazoku.models" />
+	<context:component-scan base-package="com.kazoku.services" />
+	<context:component-scan base-package="com.kazoku.utilities" />
+
+	<!-- Data access, including data sources and SQL session factory -->
+	<import resource="data-access.xml" />
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>file:${properties.path}.${app_env}</value>
+			</list>
+		</property>
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+	</bean>
+	
+	<bean id="init-RequestIdentityManger" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="staticMethod" value="com.kazoku.httpmodel.RequestIdentityManager.init"/>
+		<property name="arguments" value="${kazoku.identity.header}"/>
+	</bean>
+	
+	 <bean id="systemProperties" class="com.kazoku.utilities.Property"> 
+		<property name="propertiesPath" value="${properties.path}.${app_env}"/> 
+	 </bean>
+
+	<!-- Enabling Filters -->
+	<bean id="headerInitFilter" class="com.kazoku.httpmodel.filters.HeaderInitFilter" />
+
+	<!-- Message Converters -->
+	<bean id="stringHttpMessageConverter"
+		class="org.springframework.http.converter.StringHttpMessageConverter" />
+
+	<bean id="formHttpMessageConverter"
+		class="org.springframework.http.converter.FormHttpMessageConverter" />
+
+	<bean name="jsonMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+
+	<!-- JSON view to render the FRFRestErrorMessage in JSON format -->
+	<bean id="jsonView"
+		class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+		<!-- set this flag to true if your using frf-rest-client -->
+		<property name="extractValueFromSingleKeyModel" value="true" />
+	</bean>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		<!-- Maximum upload size of 100MB. -->
+		<!-- size in bytes = 100MB * (conversion factor... 1 KB = 1024 BYTES) -->
+		<property name="maxUploadSize" value="104857600" />
+
+	</bean>
+
+
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate"/>
+	
+	<!-- <bean id="exceptionAspect" class="com.limitless.exceptions.ExceptionAspect"/> -->
+	
+	<!-- <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl"> 
+		<property name="host" value="" /> <property name="port" value="" /> <property 
+		name="javaMailProperties"> <props> <prop key="mail.transport.protocol">smtp</prop> 
+		<prop key="mail.debug">true</prop> </props> </property> </bean> -->
+		
+	<!-- Gmail mail properties -->
+	<!-- <property name="host"><value>smtp.gmail.com</value></property> <property 
+		name="port"><value>587</value></property> <property name="protocol"><value>smtp</value></property> 
+		<property name="username"><value>${mail.username}</value></property> <property 
+		name="password"><value>${mail.password}</value></property> <property name="javaMailProperties"> 
+		<props> <prop key="mail.smtp.auth">true</prop> <prop key="mail.smtp.starttls.enable">true</prop> 
+		<prop key="mail.smtp.quitwait">false</prop> </props> </property> -->
+
+</beans>
