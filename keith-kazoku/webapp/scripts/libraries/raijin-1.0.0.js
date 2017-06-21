@@ -92,7 +92,7 @@ define('raijin',['require','underscore','jquery','blockui'], function( require )
 				this.router = router;
 			}
 			
-			this.getRouter = function(){
+			this.Router = function(){
 				return this.router;
 			}
 			
@@ -142,6 +142,8 @@ define('raijin',['require','underscore','jquery','blockui'], function( require )
 	                };
 	            };
 	        }
+			
+			
 	    
 	    };
 	    
