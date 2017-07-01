@@ -4,6 +4,7 @@ requirejs =
         urlArgs: 'v=1.0.0',
         paths:
         {
+        	/*Framework*/
         	raijin:			'libraries/raijin-1.0.0',
         	
         	Entity:			'app-utils/Entity',
@@ -23,6 +24,7 @@ requirejs =
         	//viewmodels
         		
         	//view
+        	TestView:		'views/TestView'
         },
         shim : {
         	bootstrap: {deps: ['jquery']},

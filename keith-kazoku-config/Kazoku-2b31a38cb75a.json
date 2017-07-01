@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "kazoku-raijin",
+  "private_key_id": "2b31a38cb75af9cffe0981aa80b86575145ba958",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCq2dEF2PNJOb6b\nZA6fNOv0QuHwPaLgBElh5LcZYMatbCbFtli3Z0an926bGKtUPhP3SFMjnbBayTPE\nVwUkXusLzl0HWwZVv+G7KmelXOQqDvUsq58VBp4jZO01+aKBp9uEloJdznCdD0w2\n6qAMMVXqsdyDp6cjiPA66G8pebNS2LkjZEZYz9ShQX9FsoRqRkXLtP7/4fXi0YhT\n1LlTWPGkIXs5IYRvQooFea3ns3uwkMpkVRj8fU8Ipo5E2FbcbYOiqjMjmSucRjZC\n4w3qIfD90fMqXwyneUXUG0pZrVwH4NjLxc2S4CwNnid+UHzzcRPuf7Fvulbnuo3Z\nI2m2Qr9JAgMBAAECggEAAoyVGlBmMjRVhuMDdtZRePJbMFGdxwLkB2e5YFG51SeV\nHS5p0h632/9h8ULOd5zPgR6H+F2SHotRpZR4zqtIjYNgOaEJjf5QGLylZum6ZnLq\nWebGTQgtaYYde0iEvLOA9SWmafjlDurbWRcUw+nOiDMW1l4KLTUOBIr9nEb6aSTY\nEguRcpIZssZBdU/3mk5jQCLz9pqhIXlxTQFPoAqyiDu31bXq6oq62I2Uh/ocP4tM\nqRFDNLRdDLBeDCqdocixCThV23duyATXvWxpBYZndSDAwmF7mqNwSfFvX2Dk1rAE\nMznMc5dGuAxiKAqHzZ8CA3JrVJgzhKAGAeMtLrkEOwKBgQDi2tvpGkHIvGOiha6F\nftiMykr0MqYbsTqrF+0zQnNFnpHhGmCPV1Z/ygJ6aPp/1KPJYqwH+b5XSVb0A8Lb\nUqAMkdAtGRU5vpEXm0ed+p7Tv798/HxRzcjueQmvYo1P9kPc9iqfHF3zR3sAfY1q\nKzXkdw3tpFkOede5glG0d456LwKBgQDAzQMyDdjO4grgDGT49R4pyvMR8VagLVZu\nosOJBytsVZtz3zNJ4nnV+Nsk8zAh9GRVKt74UpPr/v6ZjBdpXoU1/Ln54B1XG/v1\nAH5kNwwsPn86D3P9tZep2tBVawjG7nBJ1P7h070AtOs0KBIilOFDrk9PBs0SoWgj\n0dy6o2cYBwKBgBijiKsCrQ5uV6v5NQFOy5pPBmELdzsevq6ChMLCft6a4GFAiihH\nZh+vAyHkcQCdScS/sMuU9nVog8cw+WL00GlNFP0w8js5VWzo8phX9hQtiVC744zG\n+wHbp4+i9pIuvyQqoGpznEimBNgCyu8zDkFoJN0gsoN9/E4rt1AQhCsFAoGBAL9Q\nsEMTCnkARNpecjO4x92gzeKYIOWBF6thR7bJroUpzcAFU9eVLGDvOEZKKxEGeikp\nCWhQSQh9WBb1tKWSbY1M4x7ZDURLOJG9k63OEf41ZfovK2Iut/iMcP7R3zvHjxU0\njld4zKvO2zY+LQCzy3Rlm71HemdqUvR4Yxew3bQxAoGBANzjhlpbHRgXyGKJ2kat\ngl0M/+mrKT3B1uZqOVSVCX9sjdpcFgkjI+oQNaY1w0kxcW1zxJp7CKjvEwRoDlIL\nbf3DkEzO9nRTfar0CnALrtaveQ6P1P3Ci4RIrgya2jIWODiYpf6NwOIidCp6ov3i\nbylqI7aKBmmcNQuFZxO6w8sh\n-----END PRIVATE KEY-----\n",
+  "client_email": "srvcraijin@kazoku-raijin.iam.gserviceaccount.com",
+  "client_id": "104485552653601636129",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/srvcraijin%40kazoku-raijin.iam.gserviceaccount.com"
+}

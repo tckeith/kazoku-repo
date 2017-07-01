@@ -1,5 +1,7 @@
-define(['jquery', 'backbone', 'underscore', 'raijin', 'Entity', 'toastr', 'CryptoJS'],
-	function($, Backbone, _, raijin, Entity, toastr, CryptoJS){
+define(['jquery', 'backbone', 'underscore', 'raijin', 'Entity', 'toastr', 'CryptoJS',
+		'TestView'],
+	function($, Backbone, _, raijin, Entity, toastr, CryptoJS,
+			 TestView){
 	
 	
 	$(function(){
@@ -33,6 +35,10 @@ define(['jquery', 'backbone', 'underscore', 'raijin', 'Entity', 'toastr', 'Crypt
 		raijin.Router().on('route:index', _.debounce(function(){
 			
 			debugger;
+			
+			TestView.instance({
+				name: "TestView"
+			});
 			
 		}, 1000, true));
 		

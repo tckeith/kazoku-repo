@@ -1,3 +1,8 @@
+/*
+ * 
+ * Backbone method overrides
+ */
+
 define(['raijin', 'backbone'], function(raijin, backbone){
 	
 	
@@ -5,6 +10,8 @@ define(['raijin', 'backbone'], function(raijin, backbone){
 		initialize: function(args){
 			
 			raijin.addView(_.extend(this, args));
+			
+			this.init();
 			
 		}
 	});
