@@ -25,9 +25,9 @@
 	<context:component-scan base-package="com.kazoku.utilities" />
 
 	<!-- Data access, including data sources and SQL session factory -->
-	<import resource="data-access.xml" />
+	<!-- <import resource="data-access.xml" /> -->
 
-	<bean
+	<!-- <bean
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
@@ -35,16 +35,16 @@
 			</list>
 		</property>
 		<property name="ignoreUnresolvablePlaceholders" value="true" />
-	</bean>
+	</bean> -->
 	
 	<bean id="init-RequestIdentityManger" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
 		<property name="staticMethod" value="com.kazoku.httpmodel.RequestIdentityManager.init"/>
 		<property name="arguments" value="${kazoku.identity.header}"/>
 	</bean>
 	
-	 <bean id="systemProperties" class="com.kazoku.utilities.Property"> 
+	<!--  <bean id="systemProperties" class="com.kazoku.utilities.Property"> 
 		<property name="propertiesPath" value="${properties.path}.${app_env}"/> 
-	 </bean>
+	 </bean> -->
 
 	<!-- Enabling Filters -->
 	<bean id="headerInitFilter" class="com.kazoku.httpmodel.filters.HeaderInitFilter" />
@@ -76,7 +76,10 @@
 	</bean>
 
 
-	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate"/>
+	<!-- <bean id="restTemplate" class="org.springframework.web.client.RestTemplate"/> -->
+	
+	
+	<bean id="restTemplate" class="com.kazoku.httpmodel.client.RestTemplate"/>
 	
 	<!-- <bean id="exceptionAspect" class="com.limitless.exceptions.ExceptionAspect"/> -->
 	
