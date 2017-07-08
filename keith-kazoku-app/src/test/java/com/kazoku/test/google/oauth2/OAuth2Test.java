@@ -26,7 +26,7 @@ import com.google.api.services.drive.Drive;
 @WebAppConfiguration
 public class OAuth2Test {
 	
-	private final String json = "C:\\Users\\A514513\\.git\\kazoku-repo\\keith-kazoku-config\\Kazoku-2b31a38cb75a.json";
+	private final String json = "C:\\Users\\EnkeiRaijin\\workspace\\kazoku-repo\\keith-kazoku-config\\Kazoku-2b31a38cb75a.json";
 	
 	
 	@Test
