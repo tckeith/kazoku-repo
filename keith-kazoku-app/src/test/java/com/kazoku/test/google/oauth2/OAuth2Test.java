@@ -19,7 +19,11 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.About;
+import com.google.api.services.drive.model.File;
+import com.google.api.services.drive.model.FileList;
 import com.google.api.services.drive.Drive;
+import com.google.api.services.drive.Drive.Files;
+import com.google.api.services.drive.Drive.Files.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/kazoku.xml")
@@ -41,7 +45,29 @@ public class OAuth2Test {
 			
 			Drive drive = new Drive.Builder(httpTransport, JSON_FACTORY, credential).build();
 			
-			About getinfo = drive.about().get().execute();
+			About getinfo = drive.about().get().setFields("user, storageQuota").execute();
+						
+			System.out.println(getinfo.toPrettyString());
+			
+			String pageToken = null;
+			do {
+			    FileList result = drive.files().list()
+			            //.setQ("mimeType='image/jpeg'")
+			            //.setSpaces("drive")
+			    		.setPageSize(10)
+			            .setFields("nextPageToken, files(id, name)")
+			            .setPageToken(pageToken)
+			            .execute();
+			    
+			    System.out.println("FILE size: " + result.getFiles().size());
+			    for(File file: result.getFiles()) {
+			        System.out.printf("Found file: %s (%s)\n",
+			                file.getName(), file.getId());
+			    }
+			    pageToken = result.getNextPageToken();
+			} while (pageToken != null);
+			
+
 		} catch (IOException | GeneralSecurityException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
