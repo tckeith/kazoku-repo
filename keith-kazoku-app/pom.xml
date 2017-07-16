@@ -8,6 +8,9 @@
 	<name>kazoku</name>
 	<description>Keith Family Content Management System</description>
 	<build>
+	
+		 <finalName>kazoku</finalName>
+		 
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
